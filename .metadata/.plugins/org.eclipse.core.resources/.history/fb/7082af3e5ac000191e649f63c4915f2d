@@ -1,0 +1,32 @@
+
+public class XYZ {
+
+	public static void main(String args) {
+
+		String s = "abcdef";
+		int m = 1;
+		int n = 2;
+
+		System.out.println(getans(s, m, n));
+	}
+
+	private static int getans(String str, int m, int n) {
+		String os = str;
+		int j = str.length() - 1;
+		String s = os.substring(j - m, j);
+		os.concat(s);
+		int c = 0;
+		while (str.contains(os)) {
+			s = os.substring(j - n, j);
+			os.concat(s);
+			c++;
+			if (str.contains(s)) {
+				break;
+			}
+			s = os.substring(j - m, j);
+			os.concat(s);
+			c++;
+		}
+		return c;
+	}
+}
